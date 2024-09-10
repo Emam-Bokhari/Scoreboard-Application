@@ -43,9 +43,10 @@ const createscoreboard = (state = initialState, action) => {
       score: state.score + action.payload,
     };
   } else if (action.type === DECREMENT) {
+    const newScore = state.score - action.payload;
     return {
       ...state,
-      score: state.score > 0 ? state.score - action.payload : 0,
+      score: newScore > 0 ? newScore : 0,
     };
   } else if (action.type === RESET) {
     return {
