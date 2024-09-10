@@ -7,6 +7,8 @@
         <title>LWS Assignment 1 - Scoreboard</title>
         <link rel="icon" type="image/x-icon" href="./assets/favicon.png" />
         <link rel="stylesheet" href="./style.css" />
+         <!-- import redux form cdn -->
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.1/redux.min.js" ></script>
     </head>
 
     <body>
@@ -54,7 +56,9 @@
                         </form>
                     </div>
                     <div class="numbers">
-                        <h2 class="lws-singleResult">120</h2>
+                        <h2 
+                        id="singleResult"
+                        class="lws-singleResult"></h2>
                     </div>
                 </div>
             </div>
@@ -84,5 +88,6 @@
         </section>
 
         <section class="mask"></section>
+        <script src="script.js" ></script>
     </body>
 </html>
