@@ -16,6 +16,25 @@ const INCREMENT = "increment";
 const DECREMENT = "decrement";
 const RESET = "reset";
 
+// action creators
+const increment = (value) => {
+  return {
+    type: INCREMENT,
+    payload: value,
+  };
+};
+const decrement = (value) => {
+  return {
+    type: DECREMENT,
+    payload: value,
+  };
+};
+const reset = () => {
+  return {
+    type: RESET,
+  };
+};
+
 // create reducer function
 const createscoreboard = (state = initialState, action) => {
   if (action.type === INCREMENT) {
@@ -54,25 +73,17 @@ store.subscribe(render);
 incrementForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const incrementValue = parseInt(incrementInput.value, 10) || 0;
-  store.dispatch({
-    type: INCREMENT,
-    payload: incrementValue,
-  });
+  store.dispatch(increment(incrementValue));
   incrementInput.value = "";
 });
 
 decrementForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const decrementValue = parseInt(decrementInput.value, 10) || 0;
-  store.dispatch({
-    type: DECREMENT,
-    payload: decrementValue,
-  });
+  store.dispatch(decrement(decrementValue));
   decrementInput.value = "";
 });
 
 resetBtn.addEventListener("click", () => {
-  store.dispatch({
-    type: RESET,
-  });
+  store.dispatch(reset());
 });
